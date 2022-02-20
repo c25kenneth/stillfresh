@@ -1,14 +1,14 @@
 import 'dart:async';
 
+import 'package:stillfresh/allevents.dart';
 import 'package:stillfresh/firebaseauth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:stillfresh/createmarketplace.dart';
 import 'package:stillfresh/firebaseauth.dart';
 import 'package:stillfresh/main.dart';
-import 'package:stillfresh/maps.dart';
 import 'package:stillfresh/photoGallery.dart';
-
+import 'allevents.dart';
 class Home extends StatefulWidget {
   const Home({ Key? key }) : super(key: key);
 
@@ -19,7 +19,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int currentIndex = 0; 
   final tabs = [
-    Maps(),
+    AllSales(), 
     PhotoGallery(),
     CreateMarketPlace(),
   ];
@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
         currentIndex: currentIndex,
         type: BottomNavigationBarType.fixed,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
+          BottomNavigationBarItem(icon: Icon(Icons.store), label: 'All Sales'),
           BottomNavigationBarItem(icon: Icon(Icons.photo), label: 'Album'),
           BottomNavigationBarItem(icon: Icon(Icons.create), label: 'Create Marketplace')
         ],

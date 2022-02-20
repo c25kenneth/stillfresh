@@ -17,6 +17,8 @@ class _CreateMarketPlaceState extends State<CreateMarketPlace> {
   String name = ''; 
   String latitude = '';
   String longitude = ''; 
+  String address = ''; 
+  String description = ''; 
   File? image; 
 
   Future pickImage() async {
@@ -63,30 +65,32 @@ class _CreateMarketPlaceState extends State<CreateMarketPlace> {
                 child: TextField(
                   onChanged: (val){
                     setState(() {
-                       latitude = val; 
+                       address = val; 
                     });
                   },
                   decoration: InputDecoration(
-                    hintText: "Latitude of meeting place",
+                    hintText: "Address of meeting place",
                     contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)))
                   ),
               ),
-              SizedBox(height: 15.0,), 
+              SizedBox(height: 15.0), 
               Container(
                 width: 350,
                 child: TextField(
                   onChanged: (val){
                     setState(() {
-                       longitude = val; 
+                       description = val; 
                     });
                   },
+                  maxLines: 4,
                   decoration: InputDecoration(
-                    hintText: "Longitude of meeting place",
+                    hintText: "Description about meeting place",
                     contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)))
                   ),
               ),
+              SizedBox(height: 15.0,), 
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
@@ -99,7 +103,7 @@ class _CreateMarketPlaceState extends State<CreateMarketPlace> {
                 onPressed: () {
                   if (name != null && latitude != null && longitude != null) {
                     uploadImage(image!).then((value) => 
-                    createMarketplace(name, latitude, longitude, value));
+                    createMarketplace(name, address, description, value));
                     print('Data successfully added!!'); 
                   }
                 },

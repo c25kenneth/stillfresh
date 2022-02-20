@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
-class PhotoGallery extends StatefulWidget {
-  const PhotoGallery({ Key? key }) : super(key: key);
+class AllSales extends StatefulWidget {
+  const AllSales({ Key? key }) : super(key: key);
 
   @override
-  _PhotoGalleryState createState() => _PhotoGalleryState();
+  _AllSalesState createState() => _AllSalesState();
 }
 
-class _PhotoGalleryState extends State<PhotoGallery> {
+class _AllSalesState extends State<AllSales> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,15 +23,20 @@ class _PhotoGalleryState extends State<PhotoGallery> {
               itemCount: snapshot.data?.docs.length,
               itemBuilder: (context, index) {
                 final document = snapshot.data?.docs[index]; 
-                return Center(
-                  child: Column(children: [
-                    Container(child: Image.network(document?['downloadURL']), height: 250, width: 250,), 
-                    Container(child: Align(child: Text(document?['description'], textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold),))),
-                  ]));
+                return SizedBox(
+                  height: 100,
+                  child: Card(
+                    child: ListTile(
+                      leading: CircleAvatar(backgroundImage: NetworkImage(document?['downloadURL']),radius: 25.0,),
+                      title: Text(document?['name']),
+                      subtitle: Text("Address: " + document?['address']),
+                    ),
+                  ),
+                );
               });
           }
         },
       ),
-    );
+    ); 
   }
 }

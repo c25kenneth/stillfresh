@@ -1,13 +1,13 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-Future createMarketplace(String name, String latitude, String longitude, String downloadURL) async {
+Future createMarketplace(String name, String address, String description, String downloadURL) async {
   try {
     CollectionReference marketplaces = FirebaseFirestore.instance.collection('marketplaces'); 
     await marketplaces.add({
         'name' : name, 
-        'latitude' : latitude, 
-        'longitude' : longitude, 
+        'address' : address,  
+        'description' : description, 
         'downloadURL' : downloadURL, 
       });
   } catch (e) {
