@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "661314226999",
+    "project_id": "stillfresh-cdec1",
+    "storage_bucket": "stillfresh-cdec1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661314226999:android:ba50ce936b76f12d4228b2",
+        "android_client_info": {
+          "package_name": "com.kennycev.stillfresh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661314226999-5pl9n6ibv6qr6bgaj5r79oqlpkfd2kj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNM1vVmuS79Ws8fOYthg7_nDRzN9G52aA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661314226999-5pl9n6ibv6qr6bgaj5r79oqlpkfd2kj9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
